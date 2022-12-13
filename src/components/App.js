@@ -1,18 +1,11 @@
-import React from 'react';
-//react libraries
-//import {useState, useEffect} from 'react';
-//props
-//import PropTypes from 'prop-types';
-//services
-//import callToApi from '../services/api';
-//import ls from '../services/localStorage';
-//components
-//data, if we save data from API call in local file
-//import data from '../data';
+import React from "react";
+import CharacterList from "./CharacterList";
+import FilterByName from "./FilterByName";
+import FilterBySpecies from "./FilterBySpecies";
 //routes
-//import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 //styles
-import '../styles/App.scss';
+import "../styles/App.scss";
 
 function App() {
   //STATE VARIABLES
@@ -25,10 +18,7 @@ function App() {
   //EVENT FUNCTIONS
   //RENDER FUNCTIONS
   //RETURN
-  return (
-    <div>Hola mundo</div>
-    
-  );
+  return <div>Hola mundo</div>;
 }
 
 export default App;
