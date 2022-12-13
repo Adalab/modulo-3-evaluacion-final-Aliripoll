@@ -1,8 +1,8 @@
-/* import FilterByName from "./FilterByName";
-import FilterBySpecies from "./FilterBySpecies"; */
+import FilterByName from "./FilterByName";
+//import FilterBySpecies from "./FilterBySpecies";
 
-const Filters = () => {
-  return;
+const Filters = (props) => {
+  return <FilterByName handleFilterName={props.handleFilterName} />;
 };
 
 export default Filters;

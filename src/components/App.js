@@ -2,8 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
-/* import FilterByName from "./FilterByName";
-import FilterBySpecies from "./FilterBySpecies"; */
 //services
 import callToApi from "../services/api";
 //routes
@@ -14,6 +12,7 @@ import "../styles/App.scss";
 function App() {
   //STATE VARIABLES
   const [dataCharacter, setDataCharacter] = useState([]);
+  const [filterByName, setFilterByName] = useState("");
   //USE EFFECT
   useEffect(() => {
     callToApi().then((data) => {
@@ -22,6 +21,9 @@ function App() {
     });
   }, []);
   //EVENT FUNCTIONS
+  const handleFilterName = (value) => {
+    setFilterByName(value);
+  };
   //RENDER FUNCTIONS
   //RETURN
   return (
@@ -31,6 +33,7 @@ function App() {
       </header>
       <main>
         <CharacterList characters={dataCharacter} />
+        <Filters handleFilterName={handleFilterName} />
       </main>
     </>
   );
