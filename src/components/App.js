@@ -14,6 +14,7 @@ function App() {
   //STATE VARIABLES
   const [dataCharacter, setDataCharacter] = useState([]);
   const [filterByName, setFilterByName] = useState("");
+  const [filterBySpecies, setFilterBySpecies] = useState("");
   //USE EFFECT
   useEffect(() => {
     callToApi().then((data) => {
@@ -24,27 +25,40 @@ function App() {
   //EVENT FUNCTIONS
   const handleFilterName = (value) => {
     setFilterByName(value);
-    console.log(value);
+  };
+
+  const handleFilterSpecies = (value) => {
+    setFilterBySpecies(value);
   };
   //RENDER FUNCTIONS
-  const filteredCharacters = dataCharacter.filter((characters) =>
-    characters.name.toLowerCase().includes(filterByName.toLowerCase())
-  );
-  console.log(filteredCharacters);
+
+  const filteredCharacters = dataCharacter
+    .filter((character) =>
+      character.name.toLowerCase().includes(filterByName.toLowerCase())
+    )
+    .filter((character) =>
+      filterBySpecies === ""
+        ? true
+        : character.species.toLowercase() === filterBySpecies.toLowerCase()
+    );
+
   //RETURN
   return (
     <>
-      <header>
-        <h1>Rick and Morty</h1>
+      <header className="header">
+        <h1 className="title">Rick and Morty</h1>
       </header>
-      <main>
+      <main className="main">
         <Filters
-          filterByName={filteredCharacters}
+          //filterByName={filteredCharacters}
           handleFilterName={handleFilterName}
+          //filterBySpecies={filteredCharacters}
+          handleFilterSpecies={handleFilterSpecies}
         />
         <CharacterList
           dataCharacter={filteredCharacters}
           filterByName={filterByName}
+          //filterBySpecies={filterBySpecies}
         />
       </main>
     </>

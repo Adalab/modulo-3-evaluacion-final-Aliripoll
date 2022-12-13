@@ -1,8 +1,23 @@
-.card {
-  border: blueviolet solid 3px;
-  list-style: none;
-  width: 30%;
+body {
+  background-color: whitesmoke;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+.title {
+  visibility: hidden;
+}
+.header {
+  background-image: url("../images/Rick-and-Morty.png");
+  width: 100%;
+  height: 40vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.card {
+  border: darkgoldenrod solid 3px;
+  list-style: none;
+  object-fit: cover;
+  height: 40%;
+  width: 50vh;
 }
