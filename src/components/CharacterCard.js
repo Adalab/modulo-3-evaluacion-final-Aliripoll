@@ -1,6 +1,6 @@
 const CharacterCard = ({ character }) => {
   return (
-    <li>
+    <li className="card">
       <article>
         <img src={character.image} alt={character.name} />
         <h3>{character.name}</h3>

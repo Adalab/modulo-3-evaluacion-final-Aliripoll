@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import CharacterList from "./CharacterList";
+import Filters from "./Filters";
 /* import FilterByName from "./FilterByName";
 import FilterBySpecies from "./FilterBySpecies"; */
 //services
