@@ -1,7 +1,8 @@
 import CharacterCard from "./CharacterCard";
-const CharacterList = ({ characters }) => {
-  const characterElement = characters.map((character) => {
-    return <CharacterCard character={character} />;
+
+const CharacterList = ({ dataCharacter }) => {
+  const characterElement = dataCharacter.map((character) => {
+    return <CharacterCard key={character.id} character={character} />;
   });
   return (
     <>

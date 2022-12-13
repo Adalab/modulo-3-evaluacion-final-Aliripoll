@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import CharacterList from "./CharacterList";
+import CharacterCard from "./CharacterCard";
 import Filters from "./Filters";
 //services
 import callToApi from "../services/api";
@@ -23,8 +24,13 @@ function App() {
   //EVENT FUNCTIONS
   const handleFilterName = (value) => {
     setFilterByName(value);
+    console.log(value);
   };
   //RENDER FUNCTIONS
+  const filteredCharacters = dataCharacter.filter((characters) =>
+    characters.name.toLowerCase().includes(filterByName.toLowerCase())
+  );
+  console.log(filteredCharacters);
   //RETURN
   return (
     <>
@@ -32,8 +38,14 @@ function App() {
         <h1>Rick and Morty</h1>
       </header>
       <main>
-        <CharacterList characters={dataCharacter} />
-        <Filters handleFilterName={handleFilterName} />
+        <Filters
+          filterByName={filteredCharacters}
+          handleFilterName={handleFilterName}
+        />
+        <CharacterList
+          dataCharacter={filteredCharacters}
+          filterByName={filterByName}
+        />
       </main>
     </>
   );

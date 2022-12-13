@@ -1,16 +1,18 @@
 const FilterByName = (props) => {
+  const handleInput = (ev) => {
+    props.handleFilterName(ev.target.value);
+  };
   return (
     <>
-      <form>
-        <input
-          onChange={props.handleFilterName}
-          value={props.FilterByName}
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Ej:Rick"
-        ></input>
-      </form>
+      <label htmlFor="name">Name</label>
+      <input
+        onInput={handleInput}
+        value={props.filterByName}
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Ej:Rick"
+      ></input>
     </>
   );
 };
