@@ -16,7 +16,6 @@ function App() {
   const [dataCharacter, setDataCharacter] = useState([]);
   const [filterByName, setFilterByName] = useState(ls.get("name", ""));
   const [filterBySpecies, setFilterBySpecies] = useState("All");
-  //const [filterByAll, setFilterByAll] = useState("All"); INTENTO DE FILTRO!!!
   //USE EFFECT
   useEffect(() => {
     callToApi().then((data) => {
@@ -36,6 +35,7 @@ function App() {
 
   const handleReset = () => {
     ls.clear();
+    setFilterByName("");
   };
 
   //RENDER FUNCTIONS

@@ -16,7 +16,9 @@ const CharacterList = ({ dataCharacter, filterByName }) => {
     );
   } else {
     return (
-      <p>No hay ningún personaje que coincida con el texto {filterByName}</p>
+      <p className="error">
+        No hay ningún personaje que coincida con el texto {filterByName}
+      </p>
     );
   }
 };
