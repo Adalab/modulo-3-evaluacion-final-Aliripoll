@@ -18,7 +18,9 @@ const Filters = (props) => {
           filterBySpecies={props.filterBySpecies}
           handleFilterSpecies={props.handleFilterSpecies}
         />
-        <button type="reset" onClick={props.handleReset}></button>
+        <button className="btn" type="reset" onClick={props.handleReset}>
+          Reset
+        </button>
       </form>
     </section>
   );
