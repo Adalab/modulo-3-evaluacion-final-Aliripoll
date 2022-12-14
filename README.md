@@ -1,7 +1,6 @@
 # Módulo 3: Ejercicio de evaluación final
 
-Aplicación web de los personajes de Rick and Morty
-Desarrollada por Alicia Ripoll para el Módulo 3: React.
+Aplicación web de los personajes de Rick and Morty. Desarrollada por Alicia Ripoll para el Módulo 3 de Adalab: REACT
 
    ![700143678ddfb9dae5534bf3dca2e7ab](https://user-images.githubusercontent.com/113428720/207731468-ae04643d-f9e7-4d55-926a-05bb99a824f7.jpg)
 
