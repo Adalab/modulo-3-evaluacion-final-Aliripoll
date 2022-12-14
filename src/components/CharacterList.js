@@ -9,8 +9,8 @@ const CharacterList = ({ dataCharacter, filterByName }) => {
   if (dataCharacter.length !== 0) {
     return (
       <>
-        <section>
-          <ul>{characterElement}</ul> {/* Articulos */}
+        <section className="list__section">
+          <ul className="card">{characterElement}</ul> {/* Articulos */}
         </section>
       </>
     );

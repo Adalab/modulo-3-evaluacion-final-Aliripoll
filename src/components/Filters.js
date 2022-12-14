@@ -9,12 +9,14 @@ const Filters = (props) => {
 
   return (
     <section className="section">
-      <form onSubmit={handleSubmit}>
+      <form className="section__form" onSubmit={handleSubmit}>
         <FilterByName
+          className="section__form--name"
           filterByName={props.filterByName}
           handleFilterName={props.handleFilterName}
         />
         <FilterBySpecies
+          className="section__form--species"
           filterBySpecies={props.filterBySpecies}
           handleFilterSpecies={props.handleFilterSpecies}
         />

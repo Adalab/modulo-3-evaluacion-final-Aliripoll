@@ -4,8 +4,9 @@ const FilterByName = (props) => {
   };
   return (
     <>
-      <label htmlFor="name">Name</label>
+      <label htmlFor="name">Name:</label>
       <input
+        className="inputName"
         onInput={handleInput}
         value={props.filterByName}
         type="text"

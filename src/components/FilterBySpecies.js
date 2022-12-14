@@ -5,8 +5,9 @@ function FilterBySpecies(props) {
 
   return (
     <>
-      <label htmlFor="name">Species</label>
+      <label htmlFor="name">Species:</label>
       <select
+        className="selectSpecies"
         name="species"
         id="species"
         value={props.filterBySpecies}
