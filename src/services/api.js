@@ -8,6 +8,9 @@ const callToApi = () => {
           image: character.image,
           name: character.name,
           species: character.species,
+          origin: character.origin.name,
+          status: character.status,
+          episodes: character.episodes,
         };
       });
       return cleanData;
