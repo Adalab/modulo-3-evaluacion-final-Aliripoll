@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "./static/css/main.a7036438.css",
+    "main.js": "./static/js/main.96e6eb2b.js",
+    "static/media/Rick-and-Morty.png": "./static/media/Rick-and-Morty.0cff77d1cd22fec8d595.png",
+    "index.html": "./index.html",
+    "main.a7036438.css.map": "./static/css/main.a7036438.css.map",
+    "main.96e6eb2b.js.map": "./static/js/main.96e6eb2b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7036438.css",
+    "static/js/main.96e6eb2b.js"
+  ]
+}
