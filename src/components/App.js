@@ -15,6 +15,7 @@ function App() {
   const [dataCharacter, setDataCharacter] = useState([]);
   const [filterByName, setFilterByName] = useState("");
   const [filterBySpecies, setFilterBySpecies] = useState("");
+  // const [filterByAll, setFilterByAll] = useState("All"); INTENTO DE FILTRO!!!
   //USE EFFECT
   useEffect(() => {
     callToApi().then((data) => {
@@ -30,9 +31,24 @@ function App() {
   const handleFilterSpecies = (value) => {
     setFilterBySpecies(value);
   };
+
   //RENDER FUNCTIONS
 
-  const filteredCharacters = dataCharacter
+  const filteredCharacters = () => {
+    return dataCharacter
+      .filter((character) => {
+        return character.name
+          .toLowerCase()
+          .includes(filterByName.toLowerCase());
+      })
+      .filter((character) => {
+        return filterBySpecies.length === 0
+          ? true
+          : filterBySpecies.includes(character.species);
+      });
+  };
+
+  /* const filteredCharacters = dataCharacter
     .filter((character) =>
       character.name.toLowerCase().includes(filterByName.toLowerCase())
     )
@@ -40,7 +56,7 @@ function App() {
       filterBySpecies === ""
         ? true
         : character.species.toLowercase() === filterBySpecies.toLowerCase()
-    );
+    ); */
 
   //RETURN
   return (
@@ -50,15 +66,15 @@ function App() {
       </header>
       <main className="main">
         <Filters
-          //filterByName={filteredCharacters}
+          filterByName={filteredCharacters()}
           handleFilterName={handleFilterName}
-          //filterBySpecies={filteredCharacters}
+          filterBySpecies={filteredCharacters()}
           handleFilterSpecies={handleFilterSpecies}
         />
         <CharacterList
-          dataCharacter={filteredCharacters}
-          filterByName={filterByName}
-          //filterBySpecies={filterBySpecies}
+          dataCharacter={filteredCharacters()}
+          /* filterByName={filterByName}
+          filterBySpecies={filterBySpecies} */
         />
       </main>
     </>

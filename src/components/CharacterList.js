@@ -6,7 +6,9 @@ const CharacterList = ({ dataCharacter }) => {
   });
   return (
     <>
-      <ul>{characterElement}</ul>
+      <section>
+        <ul>{characterElement}</ul>
+      </section>
     </>
   );
 };
