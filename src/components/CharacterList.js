@@ -1,6 +1,4 @@
 import CharacterCard from "./CharacterCard";
-import FilterByName from "./FilterByName";
-
 const CharacterList = ({ dataCharacter, filterByName }) => {
   const characterElement = dataCharacter.map((character) => {
     return <CharacterCard key={character.id} character={character} />;
@@ -10,7 +8,7 @@ const CharacterList = ({ dataCharacter, filterByName }) => {
     return (
       <>
         <section className="list__section">
-          <ul className="card">{characterElement}</ul> {/* Articulos */}
+          <ul className="card">{characterElement}</ul>
         </section>
       </>
     );

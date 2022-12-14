@@ -11,7 +11,7 @@
   background-image: url("../images/Rick-and-Morty.png");
   background-position: center;
   width: 100%;
-  height: 39vh;
+  height: 37vh;
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -24,7 +24,7 @@
 
 .section {
   font-size: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   &__form {
     display: flex;
     justify-content: space-around;
@@ -57,22 +57,21 @@
   flex-direction: column;
   width: 250px;
   height: 320px;
+  text-decoration: none;
 }
 
 .detail {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 420px;
+  object-fit: contain;
+  border: rgba(40, 186, 196, 0.625) solid 5px;
+  margin-left: 450px;
   width: 30%;
   height: 60vh;
   gap: 20px;
   font-size: 17px;
-  &__div {
-    justify-content: center;
-    text-align: center;
-    border: rgba(40, 186, 196, 0.625) solid 5px;
-  }
 }
 
 .inputName {
@@ -90,4 +89,19 @@
   font-size: 18px;
   color: rgb(39, 146, 48);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.detail_img {
+  width: 17vw;
+}
+.detail_text {
+  gap: 10px;
+  font-size: 18px;
+}
+
+.link {
+  font-size: 18px;
+  background-color: rgb(187, 250, 92);
+  color: black;
+  text-decoration: none;
 }

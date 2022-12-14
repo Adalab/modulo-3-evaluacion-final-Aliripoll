@@ -13,9 +13,12 @@ import "../styles/App.scss";
 
 function App() {
   //STATE VARIABLES
+  //Recoge la información de la llamada a la API
   const [dataCharacter, setDataCharacter] = useState([]);
+  //Filters
   const [filterByName, setFilterByName] = useState(ls.get("name", ""));
   const [filterBySpecies, setFilterBySpecies] = useState("All");
+
   //USE EFFECT
   useEffect(() => {
     callToApi().then((data) => {
@@ -23,7 +26,9 @@ function App() {
       setDataCharacter(data);
     });
   }, []);
+
   //EVENT FUNCTIONS
+  //Filters
   const handleFilterName = (value) => {
     setFilterByName(value);
     ls.set("name", value);
@@ -32,14 +37,13 @@ function App() {
   const handleFilterSpecies = (value) => {
     setFilterBySpecies(value);
   };
-
+  //Reset button - clean ls and inputs
   const handleReset = () => {
     ls.clear();
     setFilterByName("");
   };
 
   //RENDER FUNCTIONS
-
   const filteredCharacters = () => {
     return dataCharacter
       .filter((character) => {
