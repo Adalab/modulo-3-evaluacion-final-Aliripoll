@@ -41,7 +41,7 @@ function App() {
   const handleReset = () => {
     ls.clear();
     setFilterByName("");
-    setFilterBySpecies("");
+    setFilterBySpecies("All");
   };
 
   //RENDER FUNCTIONS
