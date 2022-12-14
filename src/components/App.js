@@ -17,7 +17,7 @@ function App() {
   const [dataCharacter, setDataCharacter] = useState([]);
   //Filters
   const [filterByName, setFilterByName] = useState(ls.get("name", ""));
-  const [filterBySpecies, setFilterBySpecies] = useState("All");
+  const [filterBySpecies, setFilterBySpecies] = useState("All", "");
 
   //USE EFFECT
   useEffect(() => {
@@ -41,6 +41,7 @@ function App() {
   const handleReset = () => {
     ls.clear();
     setFilterByName("");
+    setFilterBySpecies("");
   };
 
   //RENDER FUNCTIONS
