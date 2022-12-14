@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import CharacterList from "./CharacterList";
-import CharacterCard from "./CharacterCard";
 import Filters from "./Filters";
+import CharacterDetail from "./CharacterDetail";
 //services
 import callToApi from "../services/api";
 //routes
-//import { Routes, Route } from "react-router-dom";
+import { Routes, Route, matchPath, useLocation } from "react-router-dom";
 //styles
 import "../styles/App.scss";
 
@@ -14,8 +14,8 @@ function App() {
   //STATE VARIABLES
   const [dataCharacter, setDataCharacter] = useState([]);
   const [filterByName, setFilterByName] = useState("");
-  const [filterBySpecies, setFilterBySpecies] = useState("");
-  // const [filterByAll, setFilterByAll] = useState("All"); INTENTO DE FILTRO!!!
+  const [filterBySpecies, setFilterBySpecies] = useState("All");
+  //const [filterByAll, setFilterByAll] = useState("All"); INTENTO DE FILTRO!!!
   //USE EFFECT
   useEffect(() => {
     callToApi().then((data) => {
@@ -42,21 +42,22 @@ function App() {
           .includes(filterByName.toLowerCase());
       })
       .filter((character) => {
-        return filterBySpecies.length === 0
+        return filterBySpecies === "All"
           ? true
           : filterBySpecies.includes(character.species);
       });
   };
 
-  /* const filteredCharacters = dataCharacter
-    .filter((character) =>
-      character.name.toLowerCase().includes(filterByName.toLowerCase())
-    )
-    .filter((character) =>
-      filterBySpecies === ""
-        ? true
-        : character.species.toLowercase() === filterBySpecies.toLowerCase()
-    ); */
+  ///ROUTES CONST
+  const { pathname } = useLocation();
+
+  const dataUrl = matchPath("/character/:characterId", pathname);
+
+  const characterId = dataUrl !== null ? dataUrl.params.characterId : null;
+
+  const characterFound = dataCharacter.find(
+    (character) => character.id === parseInt(characterId)
+  );
 
   //RETURN
   return (
@@ -64,19 +65,29 @@ function App() {
       <header className="header">
         <h1 className="title">Rick and Morty</h1>
       </header>
-      <main className="main">
-        <Filters
-          filterByName={filteredCharacters()}
-          handleFilterName={handleFilterName}
-          filterBySpecies={filteredCharacters()}
-          handleFilterSpecies={handleFilterSpecies}
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <main className="main">
+                <Filters
+                  filterByName={filterByName}
+                  handleFilterName={handleFilterName}
+                  filterBySpecies={filterBySpecies}
+                  handleFilterSpecies={handleFilterSpecies}
+                />
+                <CharacterList dataCharacter={filteredCharacters()} />
+              </main>
+            </>
+          }
         />
-        <CharacterList
-          dataCharacter={filteredCharacters()}
-          /* filterByName={filterByName}
-          filterBySpecies={filterBySpecies} */
+        <Route
+          path="/character/:characterId"
+          element={<CharacterDetail character={characterFound} />}
         />
-      </main>
+      </Routes>
     </>
   );
 }

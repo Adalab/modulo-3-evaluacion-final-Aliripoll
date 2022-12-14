@@ -10,11 +10,11 @@ const Filters = (props) => {
     <section className="section">
       <form onSubmit={handleSubmit}>
         <FilterByName
-          FilterByName={props.filterByName}
+          filterByName={props.filterByName}
           handleFilterName={props.handleFilterName}
         />
         <FilterBySpecies
-          FilterBySpecies={props.filterBySpecies}
+          filterBySpecies={props.filterBySpecies}
           handleFilterSpecies={props.handleFilterSpecies}
         />
       </form>

@@ -7,7 +7,7 @@ const CharacterList = ({ dataCharacter }) => {
   return (
     <>
       <section>
-        <ul>{characterElement}</ul>
+        <ul>{characterElement}</ul> {/* Articulos */}
       </section>
     </>
   );

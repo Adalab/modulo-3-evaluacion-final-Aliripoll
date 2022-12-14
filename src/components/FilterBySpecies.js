@@ -12,15 +12,15 @@ function FilterBySpecies(props) {
         value={props.filterBySpecies}
         onChange={handleChange}
       >
+        <option value="All" id="All">
+          All
+        </option>
         <option value="Human" id="Human">
           Human
         </option>
         <option value="Alien" id="Alien">
           Alien
         </option>
-        {/*   <option value="All" id="All">
-          All
-        </option> */}
       </select>
     </>
   );
