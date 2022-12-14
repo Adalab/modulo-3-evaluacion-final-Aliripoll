@@ -6,6 +6,7 @@ const Filters = (props) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
+
   return (
     <section className="section">
       <form onSubmit={handleSubmit}>
@@ -17,6 +18,7 @@ const Filters = (props) => {
           filterBySpecies={props.filterBySpecies}
           handleFilterSpecies={props.handleFilterSpecies}
         />
+        <button type="reset" onClick={props.handleReset}></button>
       </form>
     </section>
   );

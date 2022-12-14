@@ -5,6 +5,7 @@ import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
 //services
 import callToApi from "../services/api";
+import ls from "../services/localStorage";
 //routes
 import { Routes, Route, matchPath, useLocation } from "react-router-dom";
 //styles
@@ -13,7 +14,7 @@ import "../styles/App.scss";
 function App() {
   //STATE VARIABLES
   const [dataCharacter, setDataCharacter] = useState([]);
-  const [filterByName, setFilterByName] = useState("");
+  const [filterByName, setFilterByName] = useState(ls.get("name", ""));
   const [filterBySpecies, setFilterBySpecies] = useState("All");
   //const [filterByAll, setFilterByAll] = useState("All"); INTENTO DE FILTRO!!!
   //USE EFFECT
@@ -26,10 +27,15 @@ function App() {
   //EVENT FUNCTIONS
   const handleFilterName = (value) => {
     setFilterByName(value);
+    ls.set("name", value);
   };
 
   const handleFilterSpecies = (value) => {
     setFilterBySpecies(value);
+  };
+
+  const handleReset = () => {
+    ls.clear();
   };
 
   //RENDER FUNCTIONS
@@ -77,6 +83,7 @@ function App() {
                   handleFilterName={handleFilterName}
                   filterBySpecies={filterBySpecies}
                   handleFilterSpecies={handleFilterSpecies}
+                  handleReset={handleReset}
                 />
                 <CharacterList dataCharacter={filteredCharacters()} />
               </main>
