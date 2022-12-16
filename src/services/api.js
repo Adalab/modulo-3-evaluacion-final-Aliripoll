@@ -12,6 +12,7 @@ const callToApi = () => {
           origin: character.origin.name,
           status: character.status,
           episodes: character.episode.length,
+          location: character.location.name,
         };
       });
 

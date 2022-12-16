@@ -1,5 +1,6 @@
 import FilterByName from "./FilterByName";
 import FilterBySpecies from "./FilterBySpecies";
+import FilterByLocation from "./FilterByLocation";
 
 const Filters = (props) => {
   //EVENT FUNCTIONS
@@ -19,6 +20,11 @@ const Filters = (props) => {
           className="section__form--species"
           filterBySpecies={props.filterBySpecies}
           handleFilterSpecies={props.handleFilterSpecies}
+        />
+        <FilterByLocation
+          className="section__form--species"
+          filterByLocation={props.filterByLocation}
+          handleFilterLocation={props.handleFilterLocation}
         />
         <button className="btn" type="reset" onClick={props.handleReset}>
           Reset

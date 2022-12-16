@@ -18,6 +18,7 @@ function App() {
   //Filters
   const [filterByName, setFilterByName] = useState(ls.get("name", ""));
   const [filterBySpecies, setFilterBySpecies] = useState("All", "");
+  const [filterByLocation, setFilterByLocation] = useState("");
 
   //USE EFFECT
   useEffect(() => {
@@ -36,6 +37,10 @@ function App() {
 
   const handleFilterSpecies = (value) => {
     setFilterBySpecies(value);
+  };
+
+  const handleFilterLocation = (value) => {
+    setFilterByLocation(value);
   };
   //Reset button - clean ls and inputs
   const handleReset = () => {
@@ -56,6 +61,11 @@ function App() {
         return filterBySpecies === "All"
           ? true
           : filterBySpecies.includes(character.species);
+      })
+      .filter((character) => {
+        return character.location
+          .toLowerCase()
+          .includes(filterByLocation.toLowerCase());
       });
   };
 
@@ -88,6 +98,8 @@ function App() {
                   handleFilterName={handleFilterName}
                   filterBySpecies={filterBySpecies}
                   handleFilterSpecies={handleFilterSpecies}
+                  filterByLocation={filterByLocation}
+                  handleFilterLocation={handleFilterLocation}
                   handleReset={handleReset}
                 />
                 <CharacterList dataCharacter={filteredCharacters()} />
